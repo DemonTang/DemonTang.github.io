@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Demon</title>
+  <title>Centos7安装配置nginx(下) | Demon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is my blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Demon">
-<meta property="og:url" content="http://DemonTang.github.io/index.html">
+  <meta name="description" content="一、新建反向代理文件存放的文件夹conf.d123$ cd /usr/local/nginx$ mkdir conf.d$ cd conf.d
+二、新建一个需要反向代理的文件1$ touch test.conf
+三、在test.conf中加入如下内容1234567891011121314151617181920upstream test-server &amp;#123;     server 192.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos7安装配置nginx(下)">
+<meta property="og:url" content="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx-下/index.html">
 <meta property="og:site_name" content="Demon">
-<meta property="og:description" content="This is my blog">
+<meta property="og:description" content="一、新建反向代理文件存放的文件夹conf.d123$ cd /usr/local/nginx$ mkdir conf.d$ cd conf.d
+二、新建一个需要反向代理的文件1$ touch test.conf
+三、在test.conf中加入如下内容1234567891011121314151617181920upstream test-server &amp;#123;     server 192.1">
+<meta property="og:updated_time" content="2016-05-31T15:09:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Demon">
-<meta name="twitter:description" content="This is my blog">
+<meta name="twitter:title" content="Centos7安装配置nginx(下)">
+<meta name="twitter:description" content="一、新建反向代理文件存放的文件夹conf.d123$ cd /usr/local/nginx$ mkdir conf.d$ cd conf.d
+二、新建一个需要反向代理的文件1$ touch test.conf
+三、在test.conf中加入如下内容1234567891011121314151617181920upstream test-server &amp;#123;     server 192.1">
   
     <link rel="alternate" href="/atom.xml" title="Demon" type="application/atom+xml">
   
@@ -66,9 +73,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Centos7安装配置nginx-下" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Centos7安装配置nginx-下" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/31/Centos7安装配置nginx-下/" class="article-date">
   <time datetime="2016-05-31T14:41:56.000Z" itemprop="datePublished">2016-05-31</time>
@@ -81,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/Centos7安装配置nginx-下/">Centos7安装配置nginx(下)</a>
+    <h1 class="article-title" itemprop="name">
+      Centos7安装配置nginx(下)
     </h1>
   
 
@@ -107,99 +112,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Centos7安装配置nginx" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/31/Centos7安装配置nginx/" class="article-date">
-  <time datetime="2016-05-31T05:37:04.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/Centos7安装配置nginx/">Centos7安装配置nginx(上)</a>
-    </h1>
+    <a href="/2016/05/31/Centos7安装配置nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Centos7安装配置nginx(上)</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="1、安装必备工具"><a href="#1、安装必备工具" class="headerlink" title="1、安装必备工具"></a>1、安装必备工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install gcc gcc-c++ autoconf automake</span><br><span class="line"></span><br><span class="line">$ yum -y install zlib zlib-devel openssl openssl-devel pcre-devel</span><br></pre></td></tr></table></figure>
-<p>说明：<br>pcre: 用来作地址重写的功能。</p>
-<p>zlib：nginx 的gzip模块,传输数据打包，省流量（但消耗资源）。</p>
-<p>openssl：提供ssl加密协议。</p>
-<h1 id="二、Nginx编译安装："><a href="#二、Nginx编译安装：" class="headerlink" title="二、Nginx编译安装："></a>二、Nginx编译安装：</h1><h2 id="1、下载Nginx：http-nginx-org-en-download-html"><a href="#1、下载Nginx：http-nginx-org-en-download-html" class="headerlink" title="1、下载Nginx：http://nginx.org/en/download.html"></a>1、下载Nginx：<a href="http://nginx.org/en/download.html" target="_blank" rel="external">http://nginx.org/en/download.html</a></h2><h2 id="2、解压编译："><a href="#2、解压编译：" class="headerlink" title="2、解压编译："></a>2、解压编译：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf nginx-1.9.2.tar.gz</span><br><span class="line"></span><br><span class="line">$ cd nginx-1.9.2/</span><br><span class="line"></span><br><span class="line">$ ./configure \</span><br></pre></td></tr></table></figure>
-<h2 id="3、安装"><a href="#3、安装" class="headerlink" title="3、安装:"></a>3、安装:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<h2 id="4、启动："><a href="#4、启动：" class="headerlink" title="4、启动："></a>4、启动：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nginx -c /usr/local/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-<p>如果提示缺什么包，直接用yum安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install 相关包名</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx/" data-id="ciovky7qo0002lub1oiz01l8h" class="article-share-link">Delen</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/31/hello-world/" class="article-date">
-  <time datetime="2016-05-31T05:21:28.000Z" itemprop="datePublished">2016-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://DemonTang.github.io/2016/05/31/hello-world/" data-id="ciovky7qj0001lub1m8mxf7n0" class="article-share-link">Delen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
