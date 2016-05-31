@@ -68,6 +68,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-安装进程管理神器supervisor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/31/安装进程管理神器supervisor/" class="article-date">
+  <time datetime="2016-05-31T15:12:52.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/31/安装进程管理神器supervisor/">安装进程管理神器supervisor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文以Centos7系统操作</p>
+<h2 id="一、检查是否有python环境"><a href="#一、检查是否有python环境" class="headerlink" title="一、检查是否有python环境"></a>一、检查是否有python环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python -V</span><br><span class="line">Python 2.7.5</span><br></pre></td></tr></table></figure>
+<p>python版本号显示为2.7.5<br><code>注意supervisor暂不支持python3.0以上版本</code></p>
+<h2 id="二、安装supervisor"><a href="#二、安装supervisor" class="headerlink" title="二、安装supervisor"></a>二、安装supervisor</h2><h3 id="1-有网络环境安装"><a href="#1-有网络环境安装" class="headerlink" title="1.有网络环境安装"></a>1.有网络环境安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ easy_install supervisor</span><br></pre></td></tr></table></figure>
+<h3 id="2-无网络环境安装"><a href="#2-无网络环境安装" class="headerlink" title="2.无网络环境安装"></a>2.无网络环境安装</h3><h4 id="2-1、下载supervisor"><a href="#2-1、下载supervisor" class="headerlink" title="2.1、下载supervisor:"></a>2.1、下载supervisor:</h4><p><a href="https://pypi.python.org/packages/44/80/d28047d120bfcc8158b4e41127706731ee6a3419c661e0a858fb0e7c4b2d/supervisor-3.3.0.tar.gz" target="_blank" rel="external">https://pypi.python.org/packages/44/80/d28047d120bfcc8158b4e41127706731ee6a3419c661e0a858fb0e7c4b2d/supervisor-3.3.0.tar.gz</a></p>
+<h4 id="2-2、把下载好的supervisor-3-3-0-tar-gz放到-opt目录下"><a href="#2-2、把下载好的supervisor-3-3-0-tar-gz放到-opt目录下" class="headerlink" title="2.2、把下载好的supervisor-3.3.0.tar.gz放到/opt目录下"></a>2.2、把下载好的supervisor-3.3.0.tar.gz放到/opt目录下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd /opt</span><br><span class="line">$ tar -zxvf supervisor-3.3.0.tar.gz</span><br><span class="line">$ cd supervisor-3.3.0</span><br><span class="line">$ ./configure</span><br><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p><code>如果安装过程中出现meld3找不到，请下载meld3-xxxx.rpm，并使用rpm -ivh meld3-xxxx.rpm安装。</code><br><code>安装成功后，再一次按2.2步骤操作即可</code><br>安装好supervisor后，接着我们需要一个supervisor.conf的配置文件</p>
+<h2 id="三、建立supervisor-conf文件"><a href="#三、建立supervisor-conf文件" class="headerlink" title="三、建立supervisor.conf文件"></a>三、建立supervisor.conf文件</h2><p>可以使用如下命令复制一个supervisor.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure></p>
+<h2 id="四、配置supervisor-conf"><a href="#四、配置supervisor-conf" class="headerlink" title="四、配置supervisor.conf"></a>四、配置supervisor.conf</h2><p>这里按照对应的应用需求配置，暂时不展开如何配置，以后会再详细介绍supervisor.conf的相关配置</p>
+<p><code>That&#39;s All</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://DemonTang.github.io/2016/05/31/安装进程管理神器supervisor/" data-id="ciovly8xq0002oyb17hdkkbnu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Centos7安装配置nginx-下" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/31/Centos7安装配置nginx-下/" class="article-date">
@@ -101,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx-下/" data-id="ciovl0ec40000mmb191u6ztkh" class="article-share-link">Share</a>
+      <a data-url="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx-下/" data-id="ciovly8xm0001oyb1102arh3r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx/" data-id="ciovl0ec90001mmb1dq8tyzp5" class="article-share-link">Share</a>
+      <a data-url="http://DemonTang.github.io/2016/05/31/Centos7安装配置nginx/" data-id="ciovly8x40000oyb1ygctto9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://DemonTang.github.io/2016/05/31/hello-world/" data-id="ciovl0ecc0002mmb1zpmbtxn8" class="article-share-link">Share</a>
+      <a data-url="http://DemonTang.github.io/2016/05/31/hello-world/" data-id="ciovly8xs0003oyb1spu9xy1j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -228,6 +274,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/05/31/安装进程管理神器supervisor/">安装进程管理神器supervisor</a>
+          </li>
         
           <li>
             <a href="/2016/05/31/Centos7安装配置nginx-下/">Centos7安装配置nginx(下)</a>
